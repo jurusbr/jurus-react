@@ -1,0 +1,65 @@
+header{
+    background: linear-gradient(135deg, #306ab2 0%, #00e1ed 70%, #00e1ed 70%);
+box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+position: fixed;
+top: 0;
+    height: 60px;
+width: 100%;
+z-index: 20;
+    text-align: left;
+    display:flex;
+  justify-content: space-between;
+margin:0;    
+line-height: 60px;
+}
+
+.router-link {
+border-radius:5px;
+padding:3px;
+text-decoration: none;
+color:#ffffff;
+margin: 0 10px;
+font-size:16px;
+}
+
+.router-link-active {
+        border:1px solid white;
+        border-radius:5px;
+        padding:3px;
+        text-decoration: none;			
+        margin: 0 5px;
+        font-size:16px;
+    }
+
+
+
+header div {
+    display: none;
+text-align:center;
+margin:0 30px;
+} 
+
+.profile {
+margin-top: auto;
+margin-bottom: auto;
+}
+
+.userName {
+color:#fff;
+margin:0;
+}
+
+.logout{
+color:#fff;
+margin:0;
+}
+
+header div h3 a {
+border-radius: 25px;
+padding: 4px 7px;
+text-decoration: none;
+margin: 0 5px;
+font-size: 16px;
+border: 1px solid white;
+color: white;
+}
