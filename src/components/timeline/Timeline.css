@@ -1,7 +1,12 @@
 .timeline {
-    margin-top: 200px;
+    width: 800px;
+    margin: 100px auto 0 auto;
 }
 
 h5 {
     margin: 5px;
 }
+
+.timeline-colum-post {
+    width: 600px;
+  }

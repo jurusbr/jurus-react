@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import "./Timeline.css";
+import Post from "../posts/Post"
 
-class Timeline extends Component {
-  
+const Timeline =  (props) => {     
 
-  render() {
-    
+   let posts = props.posts.map(p => {
+      return (<Post post={p}></Post>)
+   });
 
-    return (
+   return (
       <div className="timeline">
-        <div>
-            <img class="photo" src="ir.png" width="45"/>
-            <h5>Carregando... :)</h5>
-        </div>
+        <div className="timeline-colum-post">{posts}</div>
       </div>
     );
-  }
-}
+    
+   }
 
 export default Timeline;

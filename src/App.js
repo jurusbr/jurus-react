@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
 import Timeline from "./components/timeline/Timeline";
+import Waiting from "./components/waiting/Waiting"
 import NavBar from "./components/navbar/NavBar";
 import './App.css';
 
@@ -83,7 +84,7 @@ class App extends Component {
           analise:
             "Tesouro Direto aumentou as taxas esta semana e sobe agora para 11,8%, o que representa um rendimento de 11% líquido. Neste momento então o Tesouro Direto está rendendo 150% a MAIS que a poupança, que no momento continua em 5% ao ano. Boa opção de Renda Fixa para quem deseja investir valores baixos.",
           conteudo: {
-            tipo: "action",
+            tipo: "rate",
             titulo: "11,8%",
             texto: "#tesourodireto"
           }
@@ -146,7 +147,7 @@ class App extends Component {
           analise:
             "Pra quem precisa de investimento com liquidez diária, ou seja, que possa sacar o dinheiro a qualquer momento, olha o rendimento como está. Lucro líquido de 35%, já descontado o I.R. Se sacar antes, vai ser proporcional.",
           conteudo: {
-            tipo: "action",
+            tipo: "rate",
             titulo: "101% CDI",
             texto: "#liquidezdiária"
           }
@@ -218,9 +219,6 @@ class App extends Component {
             render={() => (
               <Timeline
                 posts={this.state.posts}
-                recommends={this.state.recommends}
-                recommendsIpca={this.state.recommendsIpca}
-                recommendsPos={this.state.recommendsPos}
               />
             )}
           />
