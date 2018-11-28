@@ -9,7 +9,9 @@ class App extends Component {
 
   componentWillMount() {
     this.setState({
-      recommends: [
+      quickViewers: [{
+        type:"prefixado",
+        assets: [
         {
           id: "recommend3",
           tipo: "1 ano",
@@ -29,53 +31,54 @@ class App extends Component {
           id: "recommend5",
           tipo: "4 anos",
           texto: "13,6%"
-        }
-      ],
-      recommendsPos: [
-        {
-          id: "recommend3",
-          tipo: "1 ano",
-          texto: "107% CDI"
-        },
-        {
-          id: "recommend4",
-          tipo: "2 anos",
-          texto: "115% CDI"
-        },
-        {
-          id: "recommend5",
-          tipo: "3 anos",
-          texto: "122% CDI"
-        },
-        {
-          id: "recommend5",
-          tipo: "4 anos",
-          texto: "127% CDI"
-        }
-      ],
-      recommendsIpca: [
-        {
-          id: "recommend3",
-          tipo: "1 ano",
-          texto: "IPCA + 5,6%"
-        },
-        {
-          id: "recommend4",
-          tipo: "2 anos",
-          texto: "IPCA + 5,9%"
-        },
-        {
-          id: "recommend5",
-          tipo: "3 anos",
-          texto: "IPCA + 6,5%"
-        },
-        ,
-        {
-          id: "recommend5",
-          tipo: "4 anos",
-          texto: "IPCA + 6,9%"
-        }
-      ],
+        }      
+      ] }, {
+      type:"cdi",
+      assets: [
+      {
+        id: "recommend3",
+        tipo: "1 ano",
+        texto: "101% CDI"
+      },
+      {
+        id: "recommend4",
+        tipo: "2 anos",
+        texto: "103% CDI"
+      },
+      {
+        id: "recommend5",
+        tipo: "3 anos",
+        texto: "114% CDI"
+      },
+      {
+        id: "recommend5",
+        tipo: "4 anos",
+        texto: "126% CDI"
+      }] 
+    }, {
+      type:"ipca",
+    assets: [
+    {
+      id: "recommend3",
+      tipo: "1 ano",
+      texto: "-"
+    },
+    {
+      id: "recommend4",
+      tipo: "2 anos",
+      texto: "-"
+    },
+    {
+      id: "recommend5",
+      tipo: "3 anos",
+      texto: "ipca + 5,5%"
+    },
+    {
+      id: "recommend5",
+      tipo: "4 anos",
+      texto: "ipca + 6,3%"
+    }] 
+  }],
       posts: [
         {
           id: 20,
@@ -211,14 +214,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <NavBar />
+        <NavBar />
         <Switch>
           <Route
             exact
             path="/"
             render={() => (
               <Timeline
-                posts={this.state.posts}
+                posts={this.state.posts} quickViewers={this.state.quickViewers}
               />
             )}
           />

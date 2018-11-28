@@ -48,24 +48,12 @@ class NavBar extends Component {
           <NavLink
             className="router-link"
             activeClassName="router-link-active"
-            to="/bot"
+            to="/index"
           >
             Indices
           </NavLink>
         </div>
 
-        <div>
-          <h1>
-            <a onClick={this.logar.bind(this)} />
-          </h1>
-        </div>
-
-        <div className="profile">
-          <h3 className="userName">{this.state.user.name}</h3>
-          <a className="logout" onClick={this.logout.bind(this)}>
-            sair
-          </a>
-        </div>
       </header>
     );
   }

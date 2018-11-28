@@ -1,14 +1,12 @@
 header{
-    background: linear-gradient(135deg, #306ab2 0%, #00e1ed 70%, #00e1ed 70%);
+    background-color: #1996F9;
 box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 position: fixed;
 top: 0;
     height: 60px;
 width: 100%;
 z-index: 20;
-    text-align: left;
-    display:flex;
-  justify-content: space-between;
+    text-align: center;
 margin:0;    
 line-height: 60px;
 }
@@ -19,22 +17,22 @@ padding:3px;
 text-decoration: none;
 color:#ffffff;
 margin: 0 10px;
-font-size:16px;
+font-size:14px;
 }
 
 .router-link-active {
-        border:1px solid white;
         border-radius:5px;
         padding:3px;
         text-decoration: none;			
         margin: 0 5px;
-        font-size:16px;
+        font-size:14px;
+        color: yellow;
+font-weight: bold;
     }
 
 
 
 header div {
-    display: none;
 text-align:center;
 margin:0 30px;
 } 

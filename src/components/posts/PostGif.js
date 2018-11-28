@@ -7,7 +7,7 @@ const PostGif =  (props) => {
      
    return (
      <div class="gif">
-          <img src={props.post.conteudo.url} width="400" /> 
+          <img src={props.post.conteudo.url} width="100%" /> 
       </div>
     );
     

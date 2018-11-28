@@ -1,0 +1,49 @@
+.quickviwer{
+    margin-bottom: 30px;
+}
+
+.recommend-title {
+    font-family: 'Source Sans Pro', sans-serif;
+      font-size: 12px;
+      color: #777;
+      font-weight: normal;
+      margin: 5px;
+  }
+
+
+  .list-recommend {
+    display: flex;
+}
+
+  .recommend {  
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+    margin: 4px;
+    transition: all 0.2s;
+    width: 100px;
+    background-color: #F1F1F1;
+  }
+
+  
+.recommend:hover {  
+    background-color: #FBFBFB;
+    cursor: pointer;
+    transform: scale(1.05);  
+    box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.19);
+  }
+  
+  .recommend h4 {
+    margin: 3px;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 12px;
+      color: #999;
+  }
+  
+  .recommend h5 {
+    margin: 5px;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 12px;
+      color: #666;
+  }
+   

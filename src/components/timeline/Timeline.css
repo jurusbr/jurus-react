@@ -1,12 +1,21 @@
 .timeline {
-    width: 800px;
-    margin: 100px auto 0 auto;
+    max-width: 800px;
+    margin: 60px auto 0 auto;
+    display: flex;
 }
 
-h5 {
-    margin: 5px;
-}
 
 .timeline-colum-post {
-    width: 600px;
+    max-width: 600px;
   }
+
+.timeline-colum-recommend {
+    max-width: 300px;
+    margin: 30px;
+}
+
+@media screen and (max-width: 400px) {
+    .timeline-colum-recommend {
+        display: none;
+    }
+}
