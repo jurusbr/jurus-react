@@ -12,7 +12,16 @@
 
 
   .list-recommend {
-    display: flex;
+    width: 100%;
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+    font-size: 12px;
+    color: #7A7A7A;
+    padding: 10px;
+}
+
+.list-recommend tr{
+  height: 30px;
 }
 
   .recommend {  
