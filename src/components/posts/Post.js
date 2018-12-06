@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Post.css";
 import PostClickable from "./PostClickable"
 import PostLineChart from "./PostLineChart"
@@ -6,14 +6,18 @@ import PostGif from "./PostGif"
 
 const Post =  (props) => {
 
-   let analise = props.post.analise;
-   let tipo = props.post.conteudo.tipo;
+   let summary = props.post.summary;
+   let type = props.post.type;
    
-  let content;
+  let content = null;
   
-  switch (tipo) {
-    case "rate":{
-      content = (<PostClickable content={ props.post.conteudo}></PostClickable>)
+  switch (type) {
+    case "tesourodireto":{
+      content = (<PostClickable content={ props.post}></PostClickable>)
+      break;
+    }
+    case "medium":{
+      content = (<PostClickable content={ props.post}></PostClickable>)
       break;
     }
     case "grafico-multlinear":{
@@ -33,15 +37,15 @@ const Post =  (props) => {
    return (
     <div className="post">
         <div className="post-header">
-         <section className="author">
-            <img className="photo" src={"/gus.png"} width={45} />
+         <section className="post-header-author">
+            <img alt="foto" className="photo" src={"/gus.png"} width={45} />
           </section>
           <section>
             <h4 >19/12/2017</h4>           
           </section>        
         </div>
         <div className="post-content">
-          <p>{analise}</p>
+          <p>{summary}</p>
         </div>
         <div className="post-image">      
          {content}    

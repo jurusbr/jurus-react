@@ -1,0 +1,40 @@
+.category-container{
+    margin-top:80px;
+ }
+
+.category{    
+    width: 400px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.category-header{
+    height: 110px;
+    display: flex;
+    flex-direction: row;
+}
+
+.category-header h4{
+    color: #666;
+}
+
+.category-header p{
+    color: #888;
+    font-size: 14px;
+}
+
+.category-header-image{
+    width: 140px;
+    line-height: 150px;
+}
+
+.category-body{
+    border-top:1px solid #ccc;
+    padding: 5px;
+}
+
+.category-body h4{
+    color: #444;
+    font-size: 14px;
+}

@@ -1,13 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import "./QuickViewer.css";
-import Viewer from "./Viewer";
 
 const QuickViewer =  (props) => {
 
     let data = props.data;
-    let assets = props.data.assets.map(a => {
+    let assets = props.data.assets.map( (a,i) => {
         return (
-            <div class="recommend" id="recommend3">
+            <div key={i} className="recommend" id="recommend3">
             <h4>{a.tipo}</h4>
             <h5>{a.texto}</h5>
         </div>);
@@ -16,8 +15,8 @@ const QuickViewer =  (props) => {
      
    return (
     <div className="quickviwer">
-        <h4 class="recommend-title">Melhores <strong>{data.type}</strong> hoje</h4>
-        <div class="list-recommend">
+        <h4 className="recommend-title">Melhores <strong>{data.type}</strong> hoje</h4>
+        <div className="list-recommend">
             {assets}
         </div>
     </div>

@@ -1,63 +1,31 @@
-header{
+header {
     background-color: #1996F9;
-box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
-position: fixed;
-top: 0;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
+    position: fixed;
+    top: 0;
     height: 60px;
-width: 100%;
-z-index: 20;
+    width: 100%;
+    z-index: 20;
     text-align: center;
-margin:0;    
-line-height: 60px;
+    margin: 0;
+    line-height: 60px;
 }
 
-.router-link {
-border-radius:5px;
-padding:3px;
-text-decoration: none;
-color:#ffffff;
-margin: 0 10px;
-font-size:14px;
+.nav-link {
+    border-radius: 5px;
+    padding: 3px;
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 14px;
 }
 
-.router-link-active {
-        border-radius:5px;
-        padding:3px;
-        text-decoration: none;			
-        margin: 0 5px;
-        font-size:14px;
-        color: yellow;
-font-weight: bold;
-    }
-
-
-
-header div {
-text-align:center;
-margin:0 30px;
-} 
-
-.profile {
-margin-top: auto;
-margin-bottom: auto;
-}
-
-.userName {
-color:#fff;
-margin:0;
-}
-
-.logout{
-color:#fff;
-margin:0;
-}
-
-header div h3 a {
-border-radius: 25px;
-padding: 4px 7px;
-text-decoration: none;
-margin: 0 5px;
-font-size: 16px;
-border: 1px solid white;
-color: white;
+.nav-link-active {
+    border-radius: 5px;
+    padding: 3px;
+    text-decoration: none;
+    margin: 0 5px;
+    font-size: 14px;
+    color: yellow;
+    font-weight: bold;
 }

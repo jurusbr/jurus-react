@@ -6,16 +6,19 @@
 
 
 .timeline-colum-post {
-    max-width: 600px;
+    flex: 1;
   }
 
 .timeline-colum-recommend {
-    max-width: 300px;
+    width: 300px;
     margin: 30px;
+    display: block;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
+    
     .timeline-colum-recommend {
         display: none;
     }
+    
 }

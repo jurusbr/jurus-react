@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Post.css";
 import "./PostGif.css";
 
@@ -6,8 +6,8 @@ const PostGif =  (props) => {
 
      
    return (
-     <div class="gif">
-          <img src={props.post.conteudo.url} width="100%" /> 
+     <div className="post-gif">
+          <img alt="gif" src={props.post.conteudo.url} width="100%" /> 
       </div>
     );
     

@@ -45,7 +45,7 @@
 }
 
 
-.author {
+.post-header-author {
   position: absolute;
   left: -70px;
   top: 10px;
@@ -53,20 +53,20 @@
   white-space: nowrap;
 }
 
-.author .name {
+.post-header-author .name {
     color: rgba(255,255,255,1);
     display: block;
     font-size: .75em;
   }
     
-.author .photo {
+.post-header-author .photo {
   border:0;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.19), 0 2px 2px rgba(0, 0, 0, 0.23);
 border-radius: 50%;
 background-color: white;
 }   
 
-.author .photo-padding {
+.post-header-author .photo-padding {
   padding: 0 3px;
 } 
    

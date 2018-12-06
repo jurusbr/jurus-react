@@ -24,35 +24,33 @@ class NavBar extends Component {
   }
 
   render() {
-    const pathname = this.props.to;
 
     return (
       <header>
-        <div>
+        
           <NavLink
-            className="router-link"
-            activeClassName="router-link-active"
+            className="nav-link"
+            activeClassName="nav-link-active"
             exact
             to="/"
           >
             Timeline
           </NavLink>
           <NavLink
-            className="router-link"
-            activeClassName="router-link-active"
+            className="nav-link"
+            activeClassName="nav-link-active"
             exact
             to="/bonds"
           >
             Investimentos
           </NavLink>
           <NavLink
-            className="router-link"
-            activeClassName="router-link-active"
+            className="nav-link"
+            activeClassName="nav-link-active"
             to="/index"
           >
             Indices
           </NavLink>
-        </div>
 
       </header>
     );

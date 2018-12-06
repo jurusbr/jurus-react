@@ -1,16 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Timeline.css";
 import Post from "../posts/Post"
 import QuickViewer from "../quickviewer/QuickViewer"
 
 const Timeline =  (props) => {     
 
-   let posts = props.posts.map(p => {
-      return (<Post post={p}></Post>)
+   let posts = props.posts.map( (p,i) => {
+      return (<Post key={i} post={p}></Post>)
    });
 
-   let quickviewers = props.quickViewers.map(v => {
-    return (<QuickViewer data={v}></QuickViewer>)
+   let quickviewers = props.quickViewers.map( (v,i) => {
+    return (<QuickViewer key={i} data={v}></QuickViewer>)
  });
 
    return (
