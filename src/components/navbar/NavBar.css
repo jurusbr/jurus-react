@@ -11,6 +11,15 @@ header {
     line-height: 60px;
 }
 
+.home-link{
+    position: absolute;
+    left:20px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
 .nav-link {
     border-radius: 5px;
     padding: 3px;

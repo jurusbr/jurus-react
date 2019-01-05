@@ -3,6 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import Timeline from "./components/timeline/Timeline";
 import PostCrud from "./components/_crud/_PostCrud"
 import Category from "./components/categories/Category"
+import Bonds from "./components/bonds/Bonds"
+import Bond from "./components/bonds/Bond"
 //import Waiting from "./components/waiting/Waiting"
 import NavBar from "./components/navbar/NavBar";
 import Api from './Api';
@@ -13,29 +15,30 @@ class App extends Component {
 
     this.setState({
       quickViewers: [],
-      posts:[]
+      posts: []
     });
 
     let api = new Api();
 
 
-    api.loadPosts((posts)=> {
+    api.loadPosts((posts) => {
       this.setState({
-        posts:posts
+        posts: posts
       });
     });
 
-    api.loadQuickViews((quicks)=> {
+    api.loadQuickViews((quicks) => {
       this.setState({
-        quickViewers:quicks
+        quickViewers: quicks
       });
     });
 
 
   }
 
-
   render() {
+
+
     return (
       <div className="center">
         <NavBar />
@@ -49,19 +52,29 @@ class App extends Component {
               />
             )}
           />
-           <Route
+          <Route
             exact
             path="/crud"
             render={() => (
-              <PostCrud/>
+              <PostCrud />
             )}
           />
-           <Route
+          <Route
             exact
             path="/bonds"
             render={() => (
-              <Category/>
+              <Category />
             )}
+          />
+          <Route
+            exact
+            path="/bond/:bond"
+            component={Bond}
+          />
+          <Route
+            exact
+            path="/bonds/:category"
+            component={Bonds}
           />
         </Switch>
       </div>

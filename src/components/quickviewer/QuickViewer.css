@@ -5,7 +5,7 @@
 .recommend-title {
     font-family: 'Source Sans Pro', sans-serif;
       font-size: 12px;
-      color: #777;
+      color: rgba(0,0,0,.9);
       font-weight: normal;
       margin: 5px;
   }
@@ -18,10 +18,19 @@
     font-size: 12px;
     color: #7A7A7A;
     padding: 10px;
+    background-color: #eee;
 }
 
 .list-recommend tr{
   height: 30px;
+}
+
+
+.list-recommend tr:hover{
+  color: orangered;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid #ccc;
 }
 
   .recommend {  

@@ -1,0 +1,27 @@
+.bond-cartoon {
+    width: 100%;
+    height: 100%;
+}
+
+.bond-cartoon-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    line-height: 40px;
+    background-color: #FFFFFF;
+    margin: 10px auto;
+    border: 3px solid #cecaca;
+    padding: 15px;
+}
+
+.bond-cartoon-text {
+    color: #656565;
+}
+
+.bond-cartoon-img img {
+    border-radius: 50%;
+  }
+
+  .bond-cartoon-text {
+    font-size: 12px;
+  }

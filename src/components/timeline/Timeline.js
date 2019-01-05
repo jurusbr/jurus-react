@@ -2,6 +2,7 @@ import React from "react";
 import "./Timeline.css";
 import Post from "../posts/Post"
 import QuickViewer from "../quickviewer/QuickViewer"
+import NextEvents from "../events/NextEvents"
 
 const Timeline =  (props) => {     
 
@@ -15,6 +16,7 @@ const Timeline =  (props) => {
 
    return (
       <div className="timeline">
+      <div className="timeline-colum-dates"><NextEvents/></div>
         <div className="timeline-colum-post">{posts}</div>
         <div className="timeline-colum-recommend">{quickviewers}</div>
       </div>

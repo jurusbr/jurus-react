@@ -27,6 +27,7 @@ class NavBar extends Component {
 
     return (
       <header>
+
         
           <NavLink
             className="nav-link"
@@ -39,7 +40,6 @@ class NavBar extends Component {
           <NavLink
             className="nav-link"
             activeClassName="nav-link-active"
-            exact
             to="/bonds"
           >
             Investimentos

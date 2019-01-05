@@ -7,7 +7,7 @@ const PostClickable =  (props) => {
   let content = props.content;
      
    return (
-     <div className="post-clickable hover animated gradient-bg1">
+     <div className="post-clickable gradient-bg1">
           <h1>{content.highlight}</h1>
           <h2>#{content.type}</h2>
       </div>

@@ -1,0 +1,53 @@
+.bond-line {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around ;
+    font-size: 10px;
+    height: 60px;
+    line-height: 70px;
+    color: #555;
+    
+}
+
+.bond-line:hover {
+    background-color: #e5e5e5;
+}
+
+.card-bond-container {
+    margin: 10px auto;
+    grid-template-columns: 70% 30%;
+    font-size: 14px;
+    position: relative;
+    margin: 5px auto 0 auto;
+    -webkit-transition: width 0.7s, height 0.7s; /* Safari */
+    transition: all 0.7s;
+}
+
+.card-bond-container-close {
+    width: 400px;
+    max-height: 60px;
+    overflow: hidden;
+} 
+
+.card-bond-container-open {
+    width: 800px;  
+    max-height: 800px; 
+    margin: 20px auto;
+} 
+
+.bond-header{
+    height: 50px;
+    position: relative;
+    line-height: 70px;
+}
+
+.bond-header-interest{
+    position: absolute;
+    right: 20px;
+    color: #0B65AC;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+

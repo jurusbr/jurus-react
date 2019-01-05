@@ -49,7 +49,34 @@ class Api{
         
     }
 
+    loadBonds(category, callback){
+        axios.get(`http://localhost:8080/api/v1/bonds?category=${category}`)
+                    .then(function (response) {
+                        callback(response.data);
+                    })
+                    .catch(function (error) {
+                        if (error.response) {
+                            if (error.response.status === 404) {
+                                callback(`\u2014`)
+                            }
+                        }
+                    });
 
+    }
+
+    loadBond(id, callback){
+        axios.get(`http://localhost:8080/api/v1/bonds/${id}`)
+                    .then(function (response) {
+                        callback(response.data);
+                    })
+                    .catch(function (error) {
+                        if (error.response) {
+                            if (error.response.status === 404) {
+                                callback(`\u2014`)
+                            }
+                        }
+                    });
+    }
 
 
 }

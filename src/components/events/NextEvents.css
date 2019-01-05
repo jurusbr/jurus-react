@@ -1,0 +1,27 @@
+.next-events {
+    position: absolute;
+    left:40px;
+    top:100px;
+    text-align: left;
+}
+
+.next-events h3{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 12px;
+    color: rgba(0,0,0,.9);
+    font-weight: bold;
+    margin: 10px;
+}
+
+.next-events table{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 12px;
+    color: rgba(0,0,0,.9);
+    font-weight: normal;
+    margin: 5px;
+    width: 150px;
+}
+
+.next-events table tr{
+    line-height: 20px;
+}

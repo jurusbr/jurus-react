@@ -10,13 +10,16 @@ const Post =  (props) => {
    let type = props.post.type;
    
   let content = null;
+  let postClassName = "post";
   
   switch (type) {
     case "tesourodireto":{
+      postClassName += " hover animated ";
       content = (<PostClickable content={ props.post}></PostClickable>)
       break;
     }
     case "medium":{
+      postClassName += " hover animated ";
       content = (<PostClickable content={ props.post}></PostClickable>)
       break;
     }
@@ -35,13 +38,14 @@ const Post =  (props) => {
 
      
    return (
-    <div className="post">
+    <div className={postClassName}>
         <div className="post-header">
          <section className="post-header-author">
-            <img alt="foto" className="photo" src={"/gus.png"} width={45} />
+            <img alt="foto" className="photo" src={"/gus.png"} width={35} />
           </section>
-          <section>
-            <h4 >19/12/2017</h4>           
+          <section className="post-header-date">
+            <h5 >19/12/2017</h5>     
+            <h4 >#guga</h4>        
           </section>        
         </div>
         <div className="post-content">

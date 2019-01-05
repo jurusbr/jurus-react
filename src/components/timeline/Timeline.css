@@ -1,6 +1,6 @@
 .timeline {
     max-width: 800px;
-    margin: 60px auto 0 auto;
+    margin: 70px auto 0 auto;
     display: flex;
 }
 
@@ -11,7 +11,7 @@
 
 .timeline-colum-recommend {
     width: 220px;
-    margin: 30px;
+    margin: 20px;
     display: block;
 }
 
