@@ -5,6 +5,8 @@ import PostCrud from "./components/_crud/_PostCrud"
 import Category from "./components/categories/Category"
 import Bonds from "./components/bonds/Bonds"
 import Bond from "./components/bonds/Bond"
+import Index from "./components/index/Index"
+import BondPage from "./components/bond/BondPage"
 //import Waiting from "./components/waiting/Waiting"
 import NavBar from "./components/navbar/NavBar";
 import Api from './Api';
@@ -12,14 +14,16 @@ import Api from './Api';
 class App extends Component {
 
   componentWillMount() {
-
     this.setState({
       quickViewers: [],
       posts: []
     });
+    
+    this._loadData();
+  }
 
+  _loadData(){
     let api = new Api();
-
 
     api.loadPosts((posts) => {
       this.setState({
@@ -32,8 +36,6 @@ class App extends Component {
         quickViewers: quicks
       });
     });
-
-
   }
 
   render() {
@@ -61,9 +63,16 @@ class App extends Component {
           />
           <Route
             exact
-            path="/bonds"
+            path="/categories"
             render={() => (
               <Category />
+            )}
+          />
+          <Route
+            exact
+            path="/bonds"
+            render={() => (
+              <BondPage />
             )}
           />
           <Route
@@ -75,6 +84,13 @@ class App extends Component {
             exact
             path="/bonds/:category"
             component={Bonds}
+          />
+          <Route
+            exact
+            path="/index"
+            render={() => (
+              <Index />
+            )}
           />
         </Switch>
       </div>

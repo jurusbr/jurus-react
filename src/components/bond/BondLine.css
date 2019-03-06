@@ -1,0 +1,53 @@
+.bond {
+    background-color: #4786B7;
+    color: #555;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    flex-wrap: wrap;
+    padding:25px;
+}
+
+.bond-detail {
+    -webkit-transition: all ease-in-out 0.5s; /* Safari */
+    transition: all ease-in-out 0.5s;
+    overflow: hidden;
+}
+
+.bond-close {
+    display: none;
+    max-height: 0px;
+}
+
+.bond-opening {
+    display: block;
+    max-height: 0px;
+}
+
+.bond-opened {
+    display: block;
+    max-height:2000px;
+}
+
+.bond-msg {
+    margin: 5px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 15px;
+    font-family: Roboto;
+    box-sizing: border-box;
+}
+
+
+.bond-msg-img {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.bond-chart {
+    height: 300px;
+    padding: 20px;
+}

@@ -21,6 +21,11 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 8px 8px rgba(0, 0, 0, 0.23);
 }
 
+.hoverY:hover {
+  cursor: pointer;
+   box-shadow: 0 22px 43px rgba(0, 0, 0, 0.15);
+}
+
 .animated {
   transition: all .2s ease-in-out;
 }
@@ -29,12 +34,7 @@ ul.no-bullet{
   list-style-type: none;
 }
 
-div.card {
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.19), 0 3px 3px rgba(0, 0, 0, 0.23);
-  position: relative;
-}
-
-
+/*DEPRECATED*/ 
 li {
   margin: 10px;
 }
@@ -47,6 +47,7 @@ li {
   padding-top:80px;
 }
 
+
 .card {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.19), 0 2px 2px rgba(0, 0, 0, 0.23);
   background-color: #ffffff;
@@ -55,20 +56,6 @@ li {
   border-radius: 4px;
   }
 
-.card-line {
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.19), 0 2px 2px rgba(0, 0, 0, 0.23);
-    background-color: #ffffff;
-    font-size: 16px;
-    position: relative;
-    border-radius: 4px;
-    width: 800px;
-    height: 70px;
-    line-height: 70px;
-}
-
-.card-line-half {
-    width: 400px;
-}
 
 .text-warning {
   color: #C46712;
@@ -78,4 +65,35 @@ li {
 .text-success{
   color: #0B65AC;
   font-weight: bold;
+}
+
+.blockscreen{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 299;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;  
+  border-bottom: 10px solid #0066B6;
+  margin: 10px auto 0 auto;
+}
+
+.btn-close{
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background-color: #555;
+  color: #e5e5e5;
+  position: absolute;
+  line-height: 30px;
+  border-radius: 50px;
 }

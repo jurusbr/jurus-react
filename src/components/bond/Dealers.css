@@ -1,0 +1,105 @@
+.dealers {
+    background: #E0E0E0;
+}
+
+.dealers__container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+
+.dealers__dealer {
+    width: 150px;
+    height: 150px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid #D5D5D5;
+    background: #FFFFFF;
+    padding: 20px 0;
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 24px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.dealers__dealer:hover {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+    box-shadow: 0 22px 43px rgba(0, 0, 0, 0.15);
+}
+
+.dealers__dealer h1 {
+    font-size: 14px;
+    color: #5C5C5C;
+    margin: 20px;
+    height: 28px;
+}
+
+.dealers__dealer p {
+    font-size: 14px;
+    color: #1996F9;
+    margin: 20px
+}
+
+.dealers__dealer:hover {
+    cursor: pointer;
+}
+
+.dealers__dealer--transaction {
+    position: fixed;
+    z-index: 99;
+}
+
+.dealers__dealer--selected {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+}
+
+@media only screen and (max-width: 800px) {
+
+    .dealers__container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 310px;
+        margin: 0 auto;
+        padding: 30px 0px;
+    }
+    
+    .dealers__dealer {
+        width: 100px;
+        height: 100px;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+        border: 1px solid #D5D5D5;
+        background: #FFFFFF;
+        padding: 0px;
+        box-sizing: border-box;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 24px;
+        text-align: center;
+        transition: all 0.3s;
+    }
+    .dealers__dealer h1 {
+        font-size: 14px;
+        color: #5C5C5C;
+    }
+    .dealers__dealer p {
+        font-size: 12px;
+        color: #1996F9;
+    }
+    .dealers__dealer--selected  {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 99;
+    }
+}
