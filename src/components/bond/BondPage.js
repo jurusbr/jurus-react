@@ -72,18 +72,22 @@ class Bonds extends Component {
 
         let head = <div>
                         <h1>Confira os melhores investimentos</h1>
-                            <h2>por período</h2>
-                            
+                        <h2>por período</h2>                            
                     </div>;
 
-        if (this.state.selectedMaturity) {
-            head = null;
+
+        let loader = null;        
+        if(this.state.maturities.length==0){
+            loader = <img alt="loading" className="loading" src={"/loader.svg"} width={45} />;
         }
+        
+        
 
         return (
             <div className="bond-page center">
                 {head}
                 <div className="bond-page__chart">
+                    {loader}
                     {bars}
                 </div>
                 {dealers}

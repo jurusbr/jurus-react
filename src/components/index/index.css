@@ -73,6 +73,8 @@
     font-size: 12px;
     line-height: 30px;
     border-radius: 18px;
+    border: 2px solid #ffffff;
+    cursor: pointer;
 }
 
 

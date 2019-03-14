@@ -78,8 +78,40 @@ class Api{
                     });
     }
 
+    //TODO: mudar formato da URL
     loadCDIHistorical(callback){
         axios.get(`http://localhost:8080/indice/cdi?historical`)
+                    .then(function (response) {
+                        callback(response.data);
+                    })
+                    .catch(function (error) {
+                        if (error.response) {
+                            if (error.response.status === 404) {
+                                callback(`\u2014`)
+                            }
+                        }
+                    });
+    }
+
+
+    //TODO: mudar formato da URL
+    loadCDIFuturo(callback){
+        axios.get(`http://localhost:8080/indice/difuturo`)
+                    .then(function (response) {
+                        callback(response.data);
+                    })
+                    .catch(function (error) {
+                        if (error.response) {
+                            if (error.response.status === 404) {
+                                callback(`\u2014`)
+                            }
+                        }
+                    });
+    }
+
+    //TODO: mudar formato da URL
+    loadCDIFuturoAt(date,callback){
+        axios.get(`http://localhost:8080/indice/difuturo?date=${date}&interpolate`)
                     .then(function (response) {
                         callback(response.data);
                     })

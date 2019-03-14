@@ -103,3 +103,37 @@
         z-index: 99;
     }
 }
+
+.dealer__popup {
+    width: 150px;
+    height: 150px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid #D5D5D5;
+    background: #FFFFFF;
+    padding: 20px 0;
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 24px;
+    text-align: center;
+    transition:  all 0.3s, background .5s  ease-out .2s;
+}
+
+.dealer__popup h1{
+    color: #666;    
+}
+
+.dealer__popup--transaction {
+    position: fixed;
+    z-index: 99;
+}
+
+.dealer__popup--selected {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    overflow-y: scroll;
+    background: #dddddd
+}

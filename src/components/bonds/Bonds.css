@@ -1,17 +1,4 @@
-.bond-line {
-    display: flex;
-    flex-direction: row;
-    justify-content:space-around ;
-    font-size: 10px;
-    height: 60px;
-    line-height: 70px;
-    color: #555;
-    
-}
 
-.bond-line:hover {
-    background-color: #e5e5e5;
-}
 
 .card-bond-container {
     margin: 10px auto;
