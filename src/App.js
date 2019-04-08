@@ -7,7 +7,6 @@ import Bonds from "./components/bonds/Bonds"
 import Bond from "./components/bonds/Bond"
 import Index from "./components/index/Index"
 import BondPage from "./components/bond/BondPage"
-//import Waiting from "./components/waiting/Waiting"
 import NavBar from "./components/navbar/NavBar";
 import Api from './Api';
 
@@ -31,11 +30,11 @@ class App extends Component {
       });
     });
 
-    api.loadQuickViews((quicks) => {
+    /*api.loadQuickViews((quicks) => {
       this.setState({
         quickViewers: quicks
       });
-    });
+    });*/
   }
 
   render() {

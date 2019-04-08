@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./DealerBonds.css"
-import BondChart from './BondChart';
 import BondLine from './BondLine';
 import Api from './../../Api'
 
@@ -56,8 +55,8 @@ class DealerBonds extends Component {
     render() {
 
 
-        let bonds = this.state.bonds.map( (b) => {
-            return <BondLine rate={b.rate} issuer={b.issuer} category={b.category} maturityDays={b.maturityDays}/>
+        let bonds = this.state.bonds.map( (b, i) => {
+            return <BondLine key={i} bond={b}/>
         });
 
 

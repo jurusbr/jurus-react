@@ -40,12 +40,43 @@ class Dealers extends Component {
 
 	_loadData(maturity) {
 		let api = new Api();
-		api.loadDealersRateByMaturity(maturity, (dealersRate) => {
+		api.loadDealersRateByMaturity(maturity, (bestRateOfDealers) => {
 			this.setState({
-				dealers: dealersRate
+				dealers: bestRateOfDealers
 			});
 		});
 	}
+
+
+	render() {
+		let dealersView = this._renderDealers(this.state.dealers);
+
+		let assets = this.state.selectedDealer ? (
+			<DealerBonds
+				maturity={this.state.maturity}
+				dealer={this.state.selectedDealer}
+				onClose={this.handleCloseDealerBonds}
+			/>
+		) : null;
+		let block = this._renderPopUp(assets);
+
+		let loader = null;
+		if (this.state.dealers.length === 0) {
+			loader = <img alt="loading" className="loading" src={'/loader.svg'} width={45} />;
+		}
+
+		return (
+			<div>
+				<div className="dealers">
+					{loader}
+					{dealersView}
+				</div>
+
+				{block}
+			</div>
+		);
+    }
+    
 
 	handleDealerClick(dealer, rate) {
 		let y = document.getElementById(dealer).getBoundingClientRect().y;
@@ -109,10 +140,11 @@ class Dealers extends Component {
 	}
 
 	_renderDealers(dealers) {
-		let rateDealers = dealers.map((r) => {
+		let rateDealers = dealers.map((r, id) => {
 			let wrapper = (
 				<div
-					id={r.dealer}
+                    id={r.dealer}
+                    key={id}
 					onClick={(e) => this.handleDealerClick(r.dealer, r.bestRate)}
 					className="dealers__dealer"
 				>
@@ -160,43 +192,18 @@ class Dealers extends Component {
 
 			fix = (
 				<div className={cssnames} style={style}>
-					{btnClose}
-					<h1>{this.state.selectedDealer}</h1>
-					{listAssets}
+                    <div>
+                        {btnClose}
+                        <h1>{this.state.selectedDealer}</h1>
+                        <h2>{this.state.maturity}</h2>
+                        <hr/>
+                        {listAssets}
+                    </div>
 				</div>
 			);
 		}
 
 		return fix;
-	}
-
-	render() {
-		let dealersView = this._renderDealers(this.state.dealers);
-
-		let assets = this.state.selectedDealer ? (
-			<DealerBonds
-				maturity={this.state.maturity}
-				dealer={this.state.selectedDealer}
-				onClose={this.handleCloseDealerBonds}
-			/>
-		) : null;
-		let block = this._renderPopUp(assets);
-
-		let loader = null;
-		if (this.state.dealers.length == 0) {
-			loader = <img alt="loading" className="loading" src={'/loader.svg'} width={45} />;
-		}
-
-		return (
-			<div>
-				<div className="dealers">
-					{loader}
-					{dealersView}
-				</div>
-
-				{block}
-			</div>
-		);
 	}
 }
 

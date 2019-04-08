@@ -6,6 +6,7 @@
     grid-template-columns: 70% 30%;
     flex-wrap: wrap;
     padding:25px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .bond-detail {

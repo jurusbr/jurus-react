@@ -1,11 +1,11 @@
 .dealers {
-    background: #E0E0E0;
+    background: #A8A8A8;
 }
 
 .dealers__container {
     display: flex;
     flex-wrap: wrap;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 50px;
 }
@@ -14,7 +14,6 @@
 .dealers__dealer {
     width: 150px;
     height: 150px;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
     border: 1px solid #D5D5D5;
     background: #FFFFFF;
     padding: 20px 0;
@@ -25,6 +24,8 @@
     font-size: 24px;
     text-align: center;
     transition: all 0.3s;
+    margin: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .dealers__dealer:hover {
@@ -109,7 +110,7 @@
     height: 150px;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
     border: 1px solid #D5D5D5;
-    background: #FFFFFF;
+    background-color: white;
     padding: 20px 0;
     box-sizing: border-box;
     font-style: normal;
@@ -121,8 +122,25 @@
 }
 
 .dealer__popup h1{
-    color: #666;    
+    color: #222;    
 }
+
+.dealer__popup h2{
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #1C8FE2;
+    display: inline;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.dealer__popup hr{
+    border-top: 1px solid rgb(224, 224, 224);
+    margin-bottom: 50px;
+}
+
+
 
 .dealer__popup--transaction {
     position: fixed;
@@ -135,5 +153,5 @@
     height: 100vh;
     z-index: 99;
     overflow-y: scroll;
-    background: #dddddd
+    
 }

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Bond.css";
 import "./Bonds.css";
-import Api from './../../Api';
 import BondChart from './BondChart';
 
 class Bond extends Component {

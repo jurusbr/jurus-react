@@ -75,15 +75,6 @@ li {
 	z-index: 299;
 }
 
-.arrow-up {
-	width: 0;
-	height: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-bottom: 10px solid #0066b6;
-	margin: 10px auto 0 auto;
-}
-
 .btn-close {
 	top: 15px;
 	right: 15px;
