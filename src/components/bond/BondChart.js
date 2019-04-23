@@ -7,6 +7,7 @@ class BondChart extends Component {
 
     componentWillMount() {
 
+
     let data = this.props.curve;
     let index = this.props.index;
   

@@ -9,7 +9,7 @@
 
 .bond-line {
     display: grid;
-    grid-template-columns: 20% 30% 10% 10% 30%;
+    grid-template-columns: 20% 30% 30% 20%;
     flex-wrap: wrap;    
     line-height: 60px;
     height: 60px;
@@ -110,4 +110,37 @@
 
 .PRE--bkcolor {
     background-color: #12A30F;
+}
+
+.bond {
+    background-color: #5A83FF;
+    color: #555;
+    font-size: 14px;
+    padding:25px 0;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.bond-msg {
+    margin: 5px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    align-items: center;
+    color: white;
+    padding: 15px;
+    font-family: Roboto;
+    box-sizing: border-box;
+}
+
+
+.bond-msg-img {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.bond-chart {
+    height: 300px;
+    padding: 20px;
 }

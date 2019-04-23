@@ -92,13 +92,17 @@ class Api{
         axios.get(`${this.INDICIS}/indice/cdi?historical`)
                     .then(function (response) {
 
-                        let historical = response.data.historical.map( (i) =>{
+                        console.log(response);
+
+                        let historical = response.data.map( (i) =>{
                             return {rate:i.cdi,date:i.date}
                         } );
 
                         callback(historical);
                     })
                     .catch(function (error) {
+                        console.log("erro");
+                        console.log(error);
                         if (error.response) {
                             if (error.response.status === 404) {
                                 callback(`\u2014`)
@@ -110,7 +114,7 @@ class Api{
 
     //TODO: mudar formato da URL
     loadCDIFuturo(callback){
-        axios.get(`${this.INDICIS}/indice/difuture`)
+        axios.get(`${this.INDICIS}/indice/future/curvedi`)
                     .then(function (response) {
 
                         let dis = response.data.map( (i) =>{
@@ -131,7 +135,7 @@ class Api{
 
     //TODO: mudar formato da URL
     loadDAP(callback){
-        axios.get(`${this.INDICIS}/indice/dap`)
+        axios.get(`${this.INDICIS}/indice/future/curvedap`)
                     .then(function (response) {
 
                         let daps = response.data.map( (i) =>{

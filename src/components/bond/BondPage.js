@@ -3,6 +3,8 @@ import './BondPage.css';
 import Dealers from './Dealers';
 import Api from '../../Api';
 
+let classNames = require('classnames');
+
 class Bonds extends Component {
 	constructor(props) {
 		super(props);
@@ -17,6 +19,54 @@ class Bonds extends Component {
 		this._loadData();
 	}
 
+
+	render() {
+
+		let loader = this._buildLoader();
+        let barsChart = this._renderBars(this.state.maturities);
+
+		return (
+			<div className="bond-page center">
+				<div>
+                    <h2>por período</h2>
+                </div>
+				<div className="bond-page__chart">
+					{loader}
+					{barsChart}
+				</div>
+				{this._isAnyMaturitySelected() ? <Dealers maturity={this.state.selectedMaturity} /> : null}
+			</div>
+		);
+    }
+
+    _buildLoader(){
+        return this._isLoading() ? <div className="chart__loading" ><img alt="loading" className="loading" src={'/loader.svg'} width={45} /> </div>: null;
+    }
+
+    _renderBars(maturities) {
+		const bars = maturities.map((m, i) => {
+			const style = {
+				height: 2 * (m.rate - 50) + 'px'
+			};
+            
+            let barsClass = classNames({
+                'chart__frame': true,
+                'chart__frame--active': this._isMaturitySelected(m.maturity)
+            });
+
+			return (
+				<div className={barsClass} key={i} onClick={(e) => this._handleBarClick(m.maturity)}>
+					<div className="frame__rate">{m.rate}% CDI</div>
+					<div className="frame__bar" style={style} />
+					<div className="frame__maturity">{m.maturity}</div>
+				</div>
+			);
+		});
+
+		return bars;
+    }
+    
+
 	_loadData() {
 		let api = new Api();
 		api.loadBestRatesByMaturity((data) => {
@@ -25,35 +75,7 @@ class Bonds extends Component {
 			});
 		});
     }
-
-	render() {
-
-		let head = (
-			<div>
-				<h2>por período</h2>
-			</div>
-        );
-        
-        let barsView = this._renderBars(this.state.maturities);
-		let dealersView = this._isAnyMaturitySelected() ? <Dealers maturity={this.state.selectedMaturity} /> : null;
-
-		let loader = null;
-		if (this._isLoading()) {
-			loader = <img alt="loading" className="loading" src={'/loader.svg'} width={45} />;
-		}
-
-		return (
-			<div className="bond-page center">
-				{head}
-				<div className="bond-page__chart">
-					{loader}
-					{barsView}
-				</div>
-				{dealersView}
-			</div>
-		);
-    }
-    
+   
 
     _isMaturitySelected(maturity){
         return this.state.selectedMaturity === maturity;
@@ -79,28 +101,7 @@ class Bonds extends Component {
 		}
 	}
 
-	_renderBars(maturities) {
-		const bars = maturities.map((m, i) => {
-			const style = {
-				height: 2 * (m.rate - 50) + 'px'
-			};
-
-			let cssNames = 'chart__frame';
-			if (this.state.selectedMaturity === m.maturity) {
-				cssNames += ' chart__frame--active';
-			}
-
-			return (
-				<div className={cssNames} key={i} onClick={(e) => this._handleBarClick(m.maturity)}>
-					<div className="frame__rate">{m.rate}% CDI</div>
-					<div className="frame__bar" style={style} />
-					<div className="frame__maturity">{m.maturity}</div>
-				</div>
-			);
-		});
-
-		return bars;
-    }
+	
 
 }
 

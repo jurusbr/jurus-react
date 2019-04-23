@@ -25,6 +25,7 @@ class Index extends Component {
 		if (type === 'CDI') {
 			console.log("loading CDI");
 			api.loadCDIHistorical((resp) => {
+                console.log(resp);
 				this.setState({
                     data: resp
 				});

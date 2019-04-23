@@ -1,13 +1,4 @@
-.bond {
-    background-color: #5A83FF;
-    color: #555;
-    font-size: 14px;
-    display: grid;
-    grid-template-columns: 70% 30%;
-    flex-wrap: wrap;
-    padding:25px;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+
 
 .bond-detail {
     -webkit-transition: all ease-in-out 0.5s; /* Safari */
@@ -28,27 +19,4 @@
 .bond-opened {
     display: block;
     max-height:2000px;
-}
-
-.bond-msg {
-    margin: 5px;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    color: white;
-    padding: 15px;
-    font-family: Roboto;
-    box-sizing: border-box;
-}
-
-
-.bond-msg-img {
-    margin-bottom: 60px;
-    text-align: center;
-}
-
-.bond-chart {
-    height: 300px;
-    padding: 20px;
 }

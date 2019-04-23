@@ -6,19 +6,25 @@ import RateCalculator from '../../business/RateCalculator'
 import BondChart from './BondChart';
 import moment from 'moment';
 
+const STATUS = {
+    CLOSE: 0,
+    OPENNING : 1,
+    OPENED : 2
+}
+
 class BondLine extends Component {
+
+    
 
 	constructor(props) {
 		super(props);
-        this.handleBondClick = this.handleBondClick.bind(this);
+        this.handleBondClick = this.handleBondClick.bind(this);       
 
-        this.state = 
-        {
-            status: 'bond-close',
+        this.state = {
+            status: STATUS.CLOSE,
             bond: this.props.bond,
-            profit:null,
             curve:[]
-        } ;
+        } ;        
 	}
     
 	render() {
@@ -30,18 +36,8 @@ class BondLine extends Component {
         var maturity = moment().add(bond.maturityDays, 'days');
         var years = DateHelper.daysToYears(bond.maturityDays);
 
-        let Chart = this.state.status === 'bond-opened' ? <BondChart index={bond.index} curve={this.state.curve} /> : null;
-
+        let ChartContent = this._drawChart(bond);
         
-        
-        let cssCose = this.state.status === 'bond-opened' ? '' : 'bond-line--close';
-
-        let content = null;        
-        if(this._isLoading()){
-            content = <img alt="loading" className="loading" src={"/loader.svg"} width={45} />;
-        } else{
-            content = Chart;
-        }
 
         let index = "";
         let indexBkClass = "";
@@ -62,6 +58,8 @@ class BondLine extends Component {
             proj = "= " + future.grossAnualProjectionAtMaturity.toFixed(2) + "%" ;
         }
 
+
+        let cssCose = this._isOpen() ? '' : 'bond-line--close';
 		return (
 			<div className="bond-line-wrapper">
 				<div
@@ -71,19 +69,15 @@ class BondLine extends Component {
 					<div className="column--black">{bond.category}</div>
 					<div>{bond.issuer} </div>
 					<div >{bond.rate}% {prefix}<span className={"bondline__linerate " + indexBkClass} >{index}</span></div>
-                    <div >{proj} </div>
+                    {/* <div >{proj} </div> */}
 					<div>
-						{maturity.format('DD/MM/YYYY')}{' '}
+						{/*maturity.format('DD/MM/YYYY')}*/} 
 						<span className="bag bag--default-margin">{years.toFixed(2)} anos</span>
 					</div>
 				</div>
-				<div className={'bond-detail ' + this.state.status}>
+				<div className={'bond-detail ' + this._getStatusCss()}>
 					<div className="center bond">
                         
-						<div className="bond-chart">
-                            <h5>rentabilidade anual esperada</h5>
-                            {content}
-						</div>
 						<div className="bond-cartoons">
 							<div className="bond-msg">
 								<div>
@@ -101,54 +95,98 @@ class BondLine extends Component {
                                 <div></div>
 							</div>
 						</div>
+
+
+						<div className="bond-chart">
+                            <h5>rentabilidade anual esperada</h5>
+                            {ChartContent}
+						</div>
 					</div>
 				</div>
 			</div>
 		);
     }
-    
+
+    _drawChart(bond){
+
+        if(this._isLoading()){
+            return <img alt="loading" className="loading" src={"/loader.svg"} width={45} />;
+        }else{
+            return this._isOpen() ? <BondChart index={bond.index} curve={this.state.curve} /> : null;
+        }        
+    }
+
+    _getStatusCss(){
+        if(this._isOpen()){
+            return "bond-opened"
+        }else if(this._isOpenning()){
+            return "bond-opening"
+        }else{
+            return "bond-close"
+        }
+    }
+
+    _loadPreAtMaturity(){
+
+        let rate = this.state.bond.rate;
+        let maturity = moment(this.state.bond.maturity);
+        this.setState({curve:[{date:moment().format('DD/MM/YYYY'), index:rate, rate:rate},{date:maturity.format('DD/MM/YYYY'), index:rate, rate:rate}]})
+
+        //TODO deve ser um callback no handleclick
+		let _this = this;
+
+		if (this._isClose()) {
+			this.setState({
+				status: STATUS.OPENNING
+			});
+
+			setTimeout(function() {
+				_this.setState({
+					status: STATUS.OPENED
+				});
+			}, 100);
+		} else if (this._isOpen()) {
+			this.setState({
+				status: STATUS.OPENNING
+			});
+
+			setTimeout(function() {
+				_this.setState({
+					status: STATUS.CLOSE
+				});
+			}, 100);
+		}
+
+    }    
 
 
     _loadFuturoAtMaturity(d, maturity, rate){
 
-        let cdiFutureDate = moment(maturity).format('DD/MM/YYYY');
-
-		let api = new Api();
-		api.loadFuturoAt(this.state.bond.index, cdiFutureDate, (resp) => {
-            
-            var years = DateHelper.diffYears(maturity);
-
-            let calculator = new RateCalculator()
-            const accumRate = calculator.calculateRate(resp.rate, years, this.state.bond.rate);
-
-            this.setState({profit:accumRate});
-                      
-            this._loadFuturoCurve(this.state.bond.maturityDays);
-
-		});
+        
+        this._loadFuturoCurve(this.state.bond.maturityDays);
 
 
         //TODO deve ser um callback no handleclick
 		let _this = this;
 
-		if (this.state.status === 'bond-close') {
+		if (this._isClose()) {
 			this.setState({
-				status: 'bond-opening'
+				status: STATUS.OPENNING
 			});
 
 			setTimeout(function() {
 				_this.setState({
-					status: 'bond-opened'
+					status: STATUS.OPENED
 				});
 			}, 100);
-		} else if (this.state.status === 'bond-opened') {
+		} else if (this._isOpen()) {
 			this.setState({
-				status: 'bond-opening'
+				status: STATUS.OPENNING
 			});
 
 			setTimeout(function() {
 				_this.setState({
-					status: 'bond-close'
+					status: STATUS.CLOSE
 				});
 			}, 100);
 		}
@@ -191,14 +229,32 @@ class BondLine extends Component {
 
     }
 
+    _isOpen(){
+        return this.state.status===STATUS.OPENED;
+    }
+
+    _isOpenning(){
+        return this.state.status===STATUS.OPENNING;
+    }
+
+    _isClose(){
+        return this.state.status===STATUS.CLOSE;
+    }
+
     _isLoading(){
         return this.state.curve.length <= 1;
     }
 
 	handleBondClick(d, maturity, maturityDays, rate) {
-        this._loadFuturoAtMaturity(d, maturity, rate);
-        this._loadFuturoCurve(maturityDays);
+        if(this.state.bond.index=="PRÉ")
+        {
+            this._loadPreAtMaturity();
+        }else{
+            this._loadFuturoAtMaturity(d, maturity, rate);
+        }
+        
     }
+
     
     _toPerc(value){
         return ((value-1)*100).toFixed(2)

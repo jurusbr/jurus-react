@@ -3,7 +3,7 @@
 .bond-page{
     padding-top:80px;
     background-color: #ffffff;
-    height: 100vh;
+    min-height: 100vh;
  }
 
  .bond-page h1{
@@ -30,11 +30,17 @@
  /******************** bond-page__chart *****************/
 
  .bond-page__chart {
-    justify-content: center;
     display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     align-items: flex-end;
     max-width: 800px;
     margin: 0 auto;
+    padding-bottom: 20px;
+ }
+
+ .chart__loading{
+     margin: 0 auto;
  }
 
 
@@ -43,7 +49,8 @@
 
  .chart__frame{
     padding: 20px 0;
-    width: 100%;
+    width: 60px;
+    flex: 0 0 auto;
  }
 
  .chart__frame:hover {
@@ -59,14 +66,37 @@
  }
 
  .chart__frame--active {
-    background: #A8A8A8;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px 20px 0 0;
+    background: #EBEBEB;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
  }
 
  .chart__frame--active:hover {
-    background: #A8A8A8;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #EBEBEB;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+ }
+
+ @media only screen and (max-width: 800px) {
+    .chart__frame:hover {
+        box-shadow: none;
+        background: #ffffff;
+        cursor: pointer;
+    }
+
+
+ .chart__frame--active {
+    background: #EBEBEB;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+ }
+
+ .chart__frame--active:hover {
+    background: #EBEBEB;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+ }
+
  }
 
  /******************** frame__bar *****************/
